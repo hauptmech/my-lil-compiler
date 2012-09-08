@@ -1,0 +1,68 @@
+A collection of useful code for building simple compilers on Linux.
+Keywords:[C/C++, LLVM, PEG, cmake]
+
+Contents:
+This collection contains the following:
+
+parsergen: A parser generater written in C
+
+kaleidoscope: LLVM tutorial code modified to use the parser created by parsergen.
+
+grammar: Front-end code you can compile with your *.peg created parser code
+         that will help you debug the grammar.
+
+The Packrat parser (PEG) was rescued from the boneyard of the Narwhal project. 
+On first glance it seems to be well written modular C code. We'll see how long 
+this does the trick.
+
+Status:
+parsergen (parser generator written in C) builds and creates parsers from PEG.
+kaleidoscope parses an input file and generates code matching the tutorial.
+grammar does not exist.
+
+
+Roadmap:
+Write grammar front end  that allows exploring, debuging, and testing grammars.
+
+
+------------------
+Build instructions
+------------------
+
+>git clone git://github.com/hauptmech/my-lil-compiler.git
+>mkdir mlc_obj
+>cd mlc_obj
+>cmake ../my_little_compiler
+>make
+>make install
+
+-----------------
+Familiarization
+-----------------
+
+Take a look at kaleidoscope. It's a mod of the llvm tutorial code to use the parser created
+by parsergen instead of the internal lexer/parser. kscope.peg has the grammar. You can tweak 
+it (adding legal operator characters is a good place to start) by modifying kscope.peg, making 
+the parser:
+
+>cd ../my_little_compiler/src/kaleidoscope
+>vi kscope.peg
+>../../../mlc_obj/bin/parsergen kscope.peg
+>cd ../../../mlc_obj/src/kaleidoscope
+>make
+>./kaleidoscope test.ks
+
+
+------------------
+File Layout:
+------------------
+
+./bin - where binaries are dumped after building. Add to your $PATH if you don't like typing.
+./lib - libraries are dumped here.
+./include - include files are dumped here.
+./src - 
+
+./src/kaleidoscope - A compiler for the llvm tutorial toy language 
+./src/parsergen - Packrat parser
+./src/narwhal-utils - Helper code for the packrat parser
+

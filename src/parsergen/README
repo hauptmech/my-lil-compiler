@@ -1,0 +1,13 @@
+parsergen is a parser generator.
+
+It takes in a .peg file following the format of Bryan Ford's parsing expression grammar. 
+(http://pdos.csail.mit.edu/~baford/packrat/)
+
+It outputs a _.c and _.h file, of modular and independent code that will parse a file 
+written in your grammar. 
+
+Usage: parsergen mygrammar.peg
+
+The _.h file has the interface, which is pretty simple. Look in the other directories for 
+more examples of usage.
+

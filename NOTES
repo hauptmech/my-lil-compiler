@@ -1,0 +1,8 @@
+
+Interesting Gotchas:
+
+The following .peg led to infinite loops with no complaint:
+B <- A+
+A <- [ ]*
+
+

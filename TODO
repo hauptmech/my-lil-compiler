@@ -1,0 +1,9 @@
+
+
+Parsergen:
+Allow input from a string instead of file.
+Allow initiating the parser from any node type.
+Allow an arbitrary prefix to be supplied on the command line.
+
+Done:
+

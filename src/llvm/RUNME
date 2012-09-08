@@ -1,0 +1,1 @@
+llvmc hello_world.ll other.ll --clang -o hello
